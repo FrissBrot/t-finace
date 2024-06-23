@@ -1,8 +1,8 @@
 CREATE TABLE "session"(
     "id" BIGINT NOT NULL,
     "fk_user" BIGINT NOT NULL,
-    "token" VARCHAR(255) NOT NULL,
-    "valid_until" DATE NOT NULL
+    "token" VARCHAR(32) NOT NULL,
+    "valid_until" DATE
 );
 ALTER TABLE
     "session" ADD PRIMARY KEY("id");
@@ -15,10 +15,10 @@ CREATE TABLE "repetitiveExecution"(
     "fk_state" BIGINT NOT NULL,
     "name" VARCHAR(255) NOT NULL,
     "day" INTEGER NOT NULL,
-    "startDate" DATE NOT NULL,
-    "endDate" DATE NOT NULL,
+    "startDate" DATE,
+    "endDate" DATE,
     "amount" INTEGER NOT NULL,
-    "custom_reciever" VARCHAR(255) NOT NULL
+    "custom_reciever" VARCHAR(255)
 );
 ALTER TABLE
     "repetitiveExecution" ADD PRIMARY KEY("id");
@@ -26,7 +26,7 @@ CREATE TABLE "currency"(
     "id" BIGINT NOT NULL,
     "name" VARCHAR(255) NOT NULL,
     "country" VARCHAR(255) NOT NULL,
-    "isoCode" VARCHAR(255) NOT NULL
+    "isoCode" VARCHAR(3) NOT NULL
 );
 ALTER TABLE
     "currency" ADD PRIMARY KEY("id");
@@ -42,7 +42,7 @@ CREATE TABLE "poolPayment"(
     "fk_pool" BIGINT NOT NULL,
     "fk_currency" BIGINT NOT NULL,
     "amount" INTEGER NOT NULL,
-    "descripton" VARCHAR(255) NOT NULL
+    "descripton" VARCHAR(255)
 );
 ALTER TABLE
     "poolPayment" ADD PRIMARY KEY("id");
@@ -65,8 +65,8 @@ CREATE TABLE "bankAccount"(
     "fk_bank" BIGINT NOT NULL,
     "fk_currency" BIGINT NOT NULL,
     "name" VARCHAR(255) NOT NULL,
-    "IBAN" VARCHAR(255) NOT NULL,
-    "balance" INTEGER NOT NULL
+    "IBAN" VARCHAR(34),
+    "balance" INTEGER
 );
 ALTER TABLE
     "bankAccount" ADD PRIMARY KEY("id");
@@ -76,8 +76,8 @@ CREATE TABLE "user"(
     "mail" VARCHAR(255) NOT NULL,
     "password" VARCHAR(255) NOT NULL,
     "active" BOOLEAN NOT NULL,
-    "resetcode" VARCHAR(255) NOT NULL,
-    "codeValidUntil" TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
+    "resetcode" VARCHAR(8),
+    "codeValidUntil" TIMESTAMP(0) WITHOUT TIME ZONE,
     "fullAccess" BOOLEAN NOT NULL
 );
 ALTER TABLE
@@ -91,7 +91,7 @@ CREATE TABLE "transaction"(
     "fk_currency" BIGINT NOT NULL,
     "date" DATE NOT NULL,
     "amount" INTEGER NOT NULL,
-    "description" VARCHAR(255) NOT NULL
+    "description" VARCHAR(255)
 );
 ALTER TABLE
     "transaction" ADD PRIMARY KEY("id");
