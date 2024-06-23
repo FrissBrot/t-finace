@@ -55,7 +55,8 @@ ALTER TABLE
 CREATE TABLE "bank"(
     "id" BIGINT NOT NULL,
     "name" VARCHAR(255) NOT NULL,
-    "swift" VARCHAR(255) NOT NULL
+    "shortName" VARCHAR(255),
+    "swift" VARCHAR(255)
 );
 ALTER TABLE
     "bank" ADD PRIMARY KEY("id");
