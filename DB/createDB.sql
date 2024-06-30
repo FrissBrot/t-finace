@@ -17,7 +17,7 @@ CREATE TABLE "repetitiveExecution"(
     "day" INTEGER NOT NULL,
     "startDate" DATE NOT NULL,
     "endDate" DATE NULL,
-    "amount" INTEGER NOT NULL,
+    "amount" NUMERIC(12, 2) NOT NULL,
     "custom_reciever" VARCHAR(255) NULL
 );
 ALTER TABLE
@@ -41,7 +41,7 @@ CREATE TABLE "poolPayment"(
     "fk_user" BIGINT NOT NULL,
     "fk_pool" BIGINT NOT NULL,
     "fk_currency" BIGINT NOT NULL,
-    "amount" INTEGER NOT NULL,
+    "amount" NUMERIC(12, 2) NOT NULL,
     "descripton" VARCHAR(255) NULL
 );
 ALTER TABLE
@@ -69,7 +69,7 @@ CREATE TABLE "bankAccount"(
     "fk_currency" BIGINT NOT NULL,
     "name" VARCHAR(255) NOT NULL,
     "IBAN" VARCHAR(34) NOT NULL,
-    "balance" INTEGER NOT NULL
+    "balance" NUMERIC(12, 2) NOT NULL
 );
 ALTER TABLE
     "bankAccount" ADD PRIMARY KEY("id");
@@ -94,7 +94,7 @@ CREATE TABLE "transaction"(
     "fk_bankAccount" BIGINT NOT NULL,
     "fk_currency" BIGINT NOT NULL,
     "date" DATE NOT NULL,
-    "amount" INTEGER NOT NULL,
+    "amount" NUMERIC(12, 2) NOT NULL,
     "description" VARCHAR(255) NULL
 );
 ALTER TABLE
