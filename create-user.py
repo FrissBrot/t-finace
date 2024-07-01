@@ -1,9 +1,9 @@
 import hashlib
 import dbfunctions as db
 
-username = "timow"
-email = "t.weber@neodym.dev"
-password = "passwort123"
+username = "1"
+email = "1"
+password = "1"
 
 password_hash = hashlib.sha256(password.encode()).hexdigest()
 

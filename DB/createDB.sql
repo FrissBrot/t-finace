@@ -68,7 +68,7 @@ CREATE TABLE "bankAccount"(
     "fk_bank" BIGINT NOT NULL,
     "fk_currency" BIGINT NOT NULL,
     "name" VARCHAR(255) NOT NULL,
-    "IBAN" VARCHAR(34) NOT NULL,
+    "iban" VARCHAR(34) NOT NULL,
     "balance" NUMERIC(12, 2) NOT NULL
 );
 ALTER TABLE
